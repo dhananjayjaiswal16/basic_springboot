@@ -8,6 +8,10 @@ public class Alien {
   private String aname;
   private String tech;
 
+  public Alien() {
+    System.out.println("object created...");
+  }
+
   public int getAid() {
     return aid;
   }
