@@ -1,14 +1,15 @@
 package com.example.demo;
 
-import org.springframework.context.annotation.Scope;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value = "prototype")
 public class Alien {
   private int aid;
   private String aname;
   private String tech;
+  @Autowired
+  private Laptop laptop;
 
   public Alien() {
     System.out.println("object created...");
@@ -38,7 +39,16 @@ public class Alien {
     this.tech = tech;
   }
 
+  public Laptop getLaptop() {
+    return laptop;
+  }
+
+  public void setLaptop(Laptop laptop) {
+    this.laptop = laptop;
+  }
+
   public void show() {
     System.out.println("Inside Show function");
+    laptop.compile();
   }
 }
